@@ -21,30 +21,33 @@ Route::get('/', function () {
     return "Ola seja bem vindo";
 });
 */
-Route::get('/', [PrincipalController::class, 'principal']);
+Route::get('/', [PrincipalController::class, 'principal'])->name('site.index');
 
-Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobreNos');
 
-Route::get('/contato', [ContatoController::class, 'contato']);
-
-
+Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contato');
 
 Route::get('/login', function(){
     return 'Login';
+})->name('site.login');
+
+
+
+
+Route::prefix('/app')->group(function(){
+
+    Route::get('/clientes', function(){
+        return 'clientes';
+    })->name('app.clientes');
+    
+    Route::get('/fornecedores', function(){
+        return 'fornecedores';
+    })->name('app.fornecedores');
+    
+    Route::get('/produtos', function(){
+        return 'produtos';
+    })->name('app.produtos');
+
 });
 
-
-Route::get('/clientes', function(){
-    return 'clientes';
-});
-
-
-Route::get('/fornecedores', function(){
-    return 'fornecedores';
-});
-
-
-Route::get('/produtos', function(){
-    return 'produtos';
-});
 
