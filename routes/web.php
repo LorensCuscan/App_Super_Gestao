@@ -22,7 +22,7 @@ Route::get('/', function () {
 */
 Route::get('/', [PrincipalController::class, 'principal']);
 
-Route::get('/sobre-nós', [SobreNosController::class, 'sobreNos']);
+Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos']);
 
 Route::get('/contato', [ContatoController::class, 'contato']);
 
