@@ -1,20 +1,34 @@
 <h3>FORNECEDOR</h3>
 
-@php
-//dd($fornecedores);
-@endphp
+@isset($fornecedores)
 
-@isset($fornecedores[0])
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
-    <br>
-    Status: {{ $fornecedores[0]['status'] }}
-    <br>
-    @isset($fornecedores[0]['cnpj'])
-        CNPJ: {{ $fornecedores[0]['cnpj'] }}
-        @empty($fornecedores[0] ['cnpj'])
-        - VAZIO
-        @endempty
-    @endisset
+    @forelse($fornecedores as $indice => $fornecedor)
+        Iteração atual: {{ $loop->iteration }}
+        <br>
+        Fornecedor: {{ $fornecedor['nome'] }}
+        <br>
+        Status: {{ $fornecedor['status'] }}
+        <br>
+        CNPJ: {{ $fornecedor['cnpj'] ?? '' }}
+        <br>
+        Telefone: ({{ $fornecedor['ddd'] ?? '' }}) {{ $fornecedor['telefone'] ?? '' }}
+        <br>
+        @if($loop->first)
+            Primeira iteração no loop
+
+            <br>
+            Total de registros: {{ $loop->count }}
+        @endif
+
+        @if($loop->last)
+            Última iteração no loop
+        @endif
+        <hr>
+    @empty
+        Não existem fornecedores cadastrados!!!
+    @endforelse
 @endisset
+
+
 
 
