@@ -525,8 +525,12 @@ class ComposerStaticInitd1f68aa539c716059d9999c2c88ae80f
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\ContatoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContatoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\FornecedorController' => __DIR__ . '/../..' . '/app/Http/Controllers/FornecedorController.php',
         'App\\Http\\Controllers\\PrincipalController' => __DIR__ . '/../..' . '/app/Http/Controllers/PrincipalController.php',
+        'App\\Http\\Controllers\\SobreNosController' => __DIR__ . '/../..' . '/app/Http/Controllers/SobreNosController.php',
+        'App\\Http\\Controllers\\TesteController' => __DIR__ . '/../..' . '/app/Http/Controllers/TesteController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
