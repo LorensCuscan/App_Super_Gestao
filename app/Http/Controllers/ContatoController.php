@@ -24,7 +24,14 @@ class ContatoController extends Controller
         $contato->mensagem = $request->input('mensagem');
 
         //print_r($contato->getAttributes());
+        //$contato->save();
+
+        $contato = new SiteContato();
+        $contato->create($request->all());
+
+        print_r($contato->getAttributes());
         $contato->save();
+
         return view('site.contato', ['titulo' => 'Contato']);
     }
     
