@@ -1,5 +1,14 @@
 {{ $slot }}
+
 {{ $classe }}
+
+<div style="position:absolute; top:0px; left:0px; width:100%; background:red">
+    <pre>
+        {{ print_r( $errors )}}
+        </pre>
+
+    </div>
+
 <form action="{{ route('site.contato') }}" method="post">
     @csrf
     <input name="nome" type="text" placeholder="Nome" class="{{ $classe }}">
@@ -18,4 +27,9 @@
     <textarea name="mensagem" class="{{ $classe }}">Preencha aqui a sua mensagem</textarea>
     <br>
     <button type="submit" class="{{ $classe }}">ENVIAR</button>
+
+
+    
 </form>
+
+
