@@ -13,11 +13,15 @@ class AutenticacaoMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next,): Response
     {
+
+        
         //verifica se o usuario possui acesso a rota
         if(true){
             return $next($request);
+
+            
         } else{
             return Response('Acesso negado! Rota exige autenticação!!');
         }

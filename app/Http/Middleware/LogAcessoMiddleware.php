@@ -20,6 +20,8 @@ class LogAcessoMiddleware
        
 
        $ip = $request->server->get('REMOTE_ADDR');
+
+       
        $rota = $request->getRequestUri();
 
       // dd($request);
