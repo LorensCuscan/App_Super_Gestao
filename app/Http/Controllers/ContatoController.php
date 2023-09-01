@@ -32,6 +32,15 @@ class ContatoController extends Controller
             'mensagem' => 'required|max:2000',
             
             
+        ],[
+            'nome.required' => 'O campo nome precisa ser preenchido',
+            'nome.min' => 'O nome precisa ter no minimo 3 caracteres',
+            'nome.max' => 'O nome pode ter no maximo 4 caracteres',
+            'nome.unique' => 'Já existe um usuario com o nome inserido',
+            'telefone.required' => "O campo Telefone é obrigatorio" ,
+            'email.email' => "O endereço de e-mail não é valido!" ,
+            'motivo_contato_id.required' => "Selecione o motivo do contato" ,
+            'mensagem.required' => "Escreva a sua mensagem!" ,
         ]);
         SiteContato::create($request->all());
         return redirect()->route('site.index')->withInput();
