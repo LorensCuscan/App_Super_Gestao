@@ -2,11 +2,15 @@
 
 {{ $classe }}
 
+
+@if ($errors->any())
 <div style="position:absolute; top:0px; left:0px; width:100%; background:red">
-    <pre>
-        {{ print_r( $errors )}}
-        </pre>
+    @foreach ($errors->all() as $erro)
+        {{ $erro }}
+        <br>
+    @endforeach
     </div>
+ @endif
 
 <form action="{{ route('site.contato') }}" method="post">
     @csrf
