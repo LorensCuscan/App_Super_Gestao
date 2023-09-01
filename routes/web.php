@@ -53,9 +53,12 @@ Route::prefix('/app')->group(function(){
     
     
     
-    Route::get('/fornecedores', [FornecedorController::class, 'index'])
+    Route::middleware('log.autenticacao')
+      ->get('/fornecedores', [FornecedorController::class, 'index'])
       ->name('app.fornecedores');   
-    Route::get('/produtos', function(){
+      
+    Route::middleware('log.autenticacao')
+        ->get('/produtos', function(){
         return 'produtos';
     })->name('app.produtos');
 
