@@ -6,7 +6,6 @@
     <pre>
         {{ print_r( $errors )}}
         </pre>
-
     </div>
 
 <form action="{{ route('site.contato') }}" method="post">
@@ -17,13 +16,13 @@
     <br>
     <input name="email" value="{{ old('email') }}" placeholder="E-mail" class="{{ $classe }}">
     <br>
-
+   
    
 
-    <select name="motivo_contato" class="{{ $classe }}">
+    <select name="motivo_contato_id" class="{{ $classe }}">
         <option value="">Qual o motivo do contato?</option>
-        @foreach ($motivo_contato as $key => $motivo_contato)
-            <option value="{{ $motivo_contato->id }}" {{ old('motivo_contato') == $key ? 'selected' : '' }}>{{ $motivo_contato->motivo_contato }}</option>
+        @foreach ($motivo_contato as $motivo)
+            <option value="{{ $motivo->id }}" {{ old('motivo_contato_id') == $motivo->id ? 'selected' : '' }}>{{ $motivo->motivo_contato }}</option>
         @endforeach
     </select>
 
