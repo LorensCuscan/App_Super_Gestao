@@ -25,17 +25,17 @@ Route::get('/', function () {
     return "Ola seja bem vindo";
 });
 */
-Route::middleware(LogAcessoMiddleware::class)
-    ->get('/', [PrincipalController::class, 'principal'])    
+Route::get('/', [PrincipalController::class, 'principal'])    
     ->name('site.index');
       
 
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 
-Route::middleware(LogAcessoMiddleware::class)
-        ->get('/contato', [ContatoController::class, 'contato'])
+Route::get('/contato', [ContatoController::class, 'contato'])
         ->name('site.contato');
+
 Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato');
+
 Route::get('/login', function(){
     return 'Login';
 })->name('site.login');
