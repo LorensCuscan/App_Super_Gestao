@@ -5,6 +5,8 @@ use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
+use App\Http\Middleware\LogAcessoMiddleware;
+use Doctrine\DBAL\Portability\Middleware;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Static_;
 
@@ -23,7 +25,10 @@ Route::get('/', function () {
     return "Ola seja bem vindo";
 });
 */
-Route::get('/', [PrincipalController::class, 'principal'])->name('site.index');
+Route::middleware(LogAcessoMiddleware::class)
+    ->get('/', [PrincipalController::class, 'principal'])    
+    ->name('site.index');
+      
 
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
 
