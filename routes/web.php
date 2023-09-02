@@ -39,7 +39,7 @@ Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contat
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('site.login');
-
+Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login');
 
 
 
