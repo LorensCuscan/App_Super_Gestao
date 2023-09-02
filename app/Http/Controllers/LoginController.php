@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class LoginController extends Controller
 {
@@ -24,7 +25,27 @@ class LoginController extends Controller
         $request->validate($regras, $feedback);
         //as mensagens de feesback de validação
 
+        $email = $request->get('usuario');
+        $password = $request->get('senha');
 
-        print_r($request->all());
+        echo "Usuario: $email | Senha: $password";
+        echo '<br>';
+
+        $user = new User();
+
+        $usuario = $user->where('email', $email)
+        ->where('password', $password)
+        ->get()
+        ->first();
+
+      
+
+        if(isset($usuario->name)){
+            echo "usuario existe";
+        }else{
+            echo "usuario não existe";
+        }
+       
+
     }
 }
