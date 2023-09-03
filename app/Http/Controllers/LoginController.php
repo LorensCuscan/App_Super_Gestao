@@ -13,11 +13,10 @@ class LoginController extends Controller
         
         if($request->get('erro') == 1) {
             $erro = 'Usúario ou senha não existe';
-            echo $erro;
         };
 
-        $erro = $request->get('erro');
-        return view('site.login', ['titulo' => 'Login', 'erro', $erro]);
+        //$erro = $request->get('erro');
+        return view('site.login', ['titulo' => 'Login', 'erro' => $erro]);
     }
 
     //regras de validação
