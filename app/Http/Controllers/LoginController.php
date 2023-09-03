@@ -7,8 +7,17 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function index(){
-        return view('site.login', ['titulo' => 'Login']);
+    public function index(Request $request){
+
+        $erro = '';
+        
+        if($request->get('erro') == 1) {
+            $erro = 'Usúario ou senha não existe';
+            echo $erro;
+        };
+
+        $erro = $request->get('erro');
+        return view('site.login', ['titulo' => 'Login', 'erro', $erro]);
     }
 
     //regras de validação
@@ -43,7 +52,7 @@ class LoginController extends Controller
         if(isset($usuario->name)){
             echo "usuario existe";
         }else{
-            echo "usuario não existe";
+           return redirect()->route('site.login', ['erro' => 1]);
         }
        
 
