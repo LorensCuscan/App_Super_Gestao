@@ -26,7 +26,7 @@ use PhpParser\Node\Stmt\Static_;
 */
 /*
 Route::get('/', function () {
-    return "Ola seja bem vindo";
+    return "Ola seja bem vindo";asd
 });
 */
 Route::get('/', [PrincipalController::class, 'principal'])    
@@ -52,7 +52,7 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
     Route::get('/clientes', [ClienteController::class, 'index'])->name('app.clientes');
-    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.fornecedores');   
+    Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.index');   
     Route::get('/produtos', [ProdutoController::class, 'index'])->name('app.produtos');
 
 });
