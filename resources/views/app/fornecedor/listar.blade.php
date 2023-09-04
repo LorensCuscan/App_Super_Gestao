@@ -9,18 +9,20 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            Fornecedor - Listar
+            Fornecedor
         </div>
 
-    
-       Lista
-    
+       
 
         <div class="menu">
             <ul>
-                <li>
-                    <div style="width: 30%; margin-left: auto; margin-right: 420px;">
-                        <form method="post" action="">
+                <li><a href="">Novo</a></li>
+                <li><a href="">Consulta</a></li>
+            </ul>
+        </div>
+                <div class="informacap-pagina">
+                    <div style="width: 30%; margin-left: auto; margin-right: 650px;">
+                        <form method="post" action=" {{ route('app.fornecedor.listar') }} ">
                             @csrf
                             <input type="text" name="nome" placeholder="Nome" class="borda-preta">
                             <input type="text" name="site" placeholder="Site" class="borda-preta">
@@ -29,15 +31,14 @@
                             <button type="submit" class="borda-preta">Pesquisar</button>
                         </form>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            
 
         <div class="informacao-pagina">
 
         </div>
     
-    </div>
+   
 
         
 
