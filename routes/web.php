@@ -53,6 +53,7 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::get('/sair', [LoginController::class, 'sair'])->name('app.sair');
     Route::get('/clientes', [ClienteController::class, 'index'])->name('app.clientes');
     Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.index');   
+    Route::post('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');   
     Route::get('/produtos', [ProdutoController::class, 'index'])->name('app.produtos');
 
 });
