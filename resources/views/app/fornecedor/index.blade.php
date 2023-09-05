@@ -21,7 +21,7 @@
             </ul>
         </div>
                 <div class="informacap-pagina">
-                    <div style="width: 30%; margin-left: auto; margin-right: 455px;">
+                    <div style="width: 30%; margin-left: auto; margin-right: auto;">
                         <form method="post" action=" {{ route('app.fornecedor.listar') }} ">
                             @csrf
                             <input type="text" name="nome" placeholder="Nome" class="borda-preta">

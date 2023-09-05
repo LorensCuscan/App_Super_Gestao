@@ -21,8 +21,8 @@
             </ul>
         </div>
                 <div class="informacap-pagina">
-                    <div style="width: 30%; margin-left: auto; margin-right: 460px;">
-                        <form method="post" action=" {{ route('app.fornecedor.listar') }} ">
+                    <div style="width: 30%; margin-left: auto; margin-right: auto;">
+                        <form method="post" action=" {{ route('app.fornecedor.adicionar') }} ">
                             @csrf
                             <input type="text" name="nome" placeholder="Nome" class="borda-preta">
                             <input type="text" name="site" placeholder="Site" class="borda-preta">

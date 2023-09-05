@@ -21,7 +21,7 @@
             </ul>
         </div>
                 <div class="informacap-pagina">
-                    <div style="width: 30%; margin-left: auto; margin-right: 465px;">
+                    <div style="width: 30%; margin-left: auto; margin-right: auto;">
                         ... Lista ...
                     </div>
                 </div>
