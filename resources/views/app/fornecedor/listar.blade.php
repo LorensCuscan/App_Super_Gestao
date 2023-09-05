@@ -7,13 +7,13 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina">
-            <p>Fornecedor - Listar</p>
+            <h1>Fornecedor - Lista</h1>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('app.fornecedor.listar') }}">Consulta</a></li>
+                <li><a href="{{ route('app.index') }}">Consulta</a></li>
             </ul>
         </div>
 
@@ -39,7 +39,7 @@
                                 <td>{{ $fornecedor->uf }}</td>
                                 <td>{{ $fornecedor->email }}</td>
                                 <td>Excluir</td>
-                                <td>Editar</td>
+                                <td><a href="{{ route('app.fornecedor.editar') }}">Editar</td>
                             </tr>
                         @endforeach
                     </tbody>

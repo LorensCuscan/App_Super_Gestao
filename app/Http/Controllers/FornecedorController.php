@@ -19,9 +19,7 @@ class FornecedorController extends Controller
             ->where('site', 'like', '%'.$request->input('site').'%')
             ->where('uf', 'like', '%'.$request->input('uf').'%')
             ->where('email', 'like', '%'.$request->input('email').'%')
-            ->get();
-           // dd($fornecedores);
-            
+            ->get();    
            return view('app.fornecedor.listar', ['fornecedores' => $fornecedores]);
        
     }
@@ -29,10 +27,7 @@ class FornecedorController extends Controller
     public function adicionar(Request $request){
         //validacao
         $msg = '';
-       
         
-
-
         if($request->input('_token') != ''){
         $regras = [
             'nome' => 'required|min:3|max:40',
