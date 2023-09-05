@@ -197,3 +197,13 @@ button:hover {
     margin: 0px 15px 0px 15px;
 }
 
+.pagination {
+    display: inline;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }

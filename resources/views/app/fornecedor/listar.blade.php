@@ -6,20 +6,23 @@
 
     <div class="conteudo-pagina">
 
-        <div class="titulo-pagina">
-            <h1>Fornecedor - Lista</h1>
+        <div class="titulo-pagina-2">
+            <p>Fornecedor - Listar</p>
         </div>
 
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('app.index') }}">Consulta</a></li>
+                <li><a href="{{ route('app.fornecedor.listar') }}">Consulta</a></li>
             </ul>
         </div>
 
-        <div class="informacao-pagina">
-            <div style="width: 90%; margin-left: auto; margin-right: auto;">
+        <div class="informacao-pagina" >
+            <div class="paginate">
+            <div style="width: 100%; margin-left: auto; margin-right: auto;">
+                <br>
                 <table border="1" width="100%">
+                   
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -39,13 +42,17 @@
                                 <td>{{ $fornecedor->uf }}</td>
                                 <td>{{ $fornecedor->email }}</td>
                                 <td>Excluir</td>
-                                <td><a href="{{ route('app.fornecedor.editar', $fornecedor->id) }}">Editar</td>
+                                <td><a href="{{ route('app.fornecedor.editar', $fornecedor->id) }}">Editar</a></td>
                             </tr>
                         @endforeach
-                    </tbody>
+                    </tbody>                    
                 </table>
+                {{ $fornecedores->links() }}
+                <br>
             </div>
+            <br>
         </div>
+        <br>
 
     </div>
 
