@@ -21,7 +21,7 @@ class FornecedorController extends Controller
     public function adicionar(Request $request){
         //validacao
        
-
+/*
         $regras = [
             'nome' => 'required|min:3|max:40',
             'site' => 'required',
@@ -46,7 +46,7 @@ class FornecedorController extends Controller
             $fornecedor->uf = $request->input('uf');
             $fornecedor->email = $request->input('email');
             $fornecedor->save();
-
+*/
         echo 'Chegamos até aqui';
 
         return view('app.fornecedor.adicionar');
