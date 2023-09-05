@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fornecedor;
-use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class FornecedorController extends Controller
@@ -20,8 +20,9 @@ class FornecedorController extends Controller
 
     public function adicionar(Request $request){
         //validacao
+        $msg = '';
        
-/*
+        if($request->input('_token') != ''){
         $regras = [
             'nome' => 'required|min:3|max:40',
             'site' => 'required',
@@ -35,22 +36,19 @@ class FornecedorController extends Controller
             'nome.max' => 'O campo nome deve ter no minimo 3 caracteres',
             'uf.min' => 'O  campo uf deve ter no minimo 2 caracteres',
             'uf.max' => 'O campo uf deve ter no minimo 2 caracteres',
-            'email' => 'O campo e-mail não foi preenchido corretamente'
+            'email.email' => 'O campo e-mail não foi preenchido corretamente'
         ];
 
-        $request->validate($regras, $feedback);
+        $request->validate($regras, $feedback);  
+       
+        $fornecedor = new Fornecedor();
+        $fornecedor->create($request->all());
 
-            $fornecedor = new Fornecedor();
-            $fornecedor->nome = $request->input('nome');
-            $fornecedor->site = $request->input('site');
-            $fornecedor->uf = $request->input('uf');
-            $fornecedor->email = $request->input('email');
-            $fornecedor->save();
-*/
-        echo 'Chegamos até aqui';
 
-        return view('app.fornecedor.adicionar');
+        $msg = 'Cadastro Realizado!';
 
+    }
+    return view('app.fornecedor.adicionar', ['msg' => $msg]);
         
         
     }

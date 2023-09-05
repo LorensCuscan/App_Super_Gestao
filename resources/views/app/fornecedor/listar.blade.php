@@ -8,8 +8,8 @@
 
     <div class="conteudo-pagina">
 
-        <div class="titulo-pagina-2">
-            Fornecedor
+        <div class="titulo-pagina">
+         <h1>Fornecedor - Lista<h1>
         </div>
 
        
