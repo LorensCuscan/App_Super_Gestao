@@ -23,7 +23,7 @@
                 <div class="informacao-pagina">
                   
                     <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                        <form method="post" action="">
+                        <form method="post" action="{{ route('produtos.store') }}">
                             <input type="hidden" name="id" value="{{ isset($fornecedor) ? $fornecedor->id : '' }}">
                             @csrf
                             
