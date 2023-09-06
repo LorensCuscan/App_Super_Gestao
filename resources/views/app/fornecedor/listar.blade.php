@@ -7,7 +7,7 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina-2">
-            <p>Fornecedor - Listar</p>
+            <h1>Fornecedor - Listar</h1>
         </div>
 
         <div class="menu">
@@ -19,7 +19,7 @@
 
         <div class="informacao-pagina">
             <div style="width: 90%; margin-left: auto; margin-right: auto;">
-                <table border="1" width="100%">
+                <table border="2" width="100%">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -43,8 +43,8 @@
                         @endforeach
                     </tbody>                  
                 </table>
-                {{ $fornecedores->links() }}
-    {{ print_r($request)}}               
+                {{ $fornecedores->appends($request)->links() }}
+          
             </div>
         </div>
      
