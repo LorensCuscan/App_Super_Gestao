@@ -13,16 +13,13 @@
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
-                <li><a href="{{ route('app.fornecedor.listar') }}">Consulta</a></li>
+                <li><a href="{{ route('app.index') }}">Consulta</a></li>
             </ul>
         </div>
 
-        <div class="informacao-pagina" >
-            <div class="paginate">
-            <div style="width: 100%; margin-left: auto; margin-right: auto;">
-                <br>
+        <div class="informacao-pagina">
+            <div style="width: 90%; margin-left: auto; margin-right: auto;">
                 <table border="1" width="100%">
-                   
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -33,7 +30,6 @@
                             <th></th>
                         </tr>
                     </thead>
-
                     <tbody>
                         @foreach ($fornecedores as $fornecedor)
                             <tr>
@@ -45,15 +41,13 @@
                                 <td><a href="{{ route('app.fornecedor.editar', $fornecedor->id) }}">Editar</a></td>
                             </tr>
                         @endforeach
-                    </tbody>                    
+                    </tbody>                  
                 </table>
                 {{ $fornecedores->links() }}
-                <br>
+    {{ print_r($request)}}               
             </div>
-            <br>
         </div>
-        <br>
-
+     
     </div>
-
+    
 @endsection

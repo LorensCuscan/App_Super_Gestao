@@ -47,6 +47,7 @@ Route::post('/login', [LoginController::class, 'autenticar'])->name('site.login'
 
 
 
+
 Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(function(){
 
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
