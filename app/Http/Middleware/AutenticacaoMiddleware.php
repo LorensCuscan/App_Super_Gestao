@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use app\Models\Produto;
 
 class AutenticacaoMiddleware
 {
@@ -13,7 +14,7 @@ class AutenticacaoMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil): Response
+    public function handle(Request $request, Closure $next, ): Response
     {
         session_start();
 

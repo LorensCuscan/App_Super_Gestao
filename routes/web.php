@@ -65,7 +65,7 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::get('fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedor.excluir');
 
 
-    Route::resource('produto', ProdutoController::class);
+    Route::resource('/produtos', ProdutoController::class);
 
 
 });
