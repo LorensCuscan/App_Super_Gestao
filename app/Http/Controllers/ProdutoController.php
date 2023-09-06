@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\models\Produto;
 use App\Models\Unidade;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ProdutoController extends Controller
 {
@@ -39,6 +40,19 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
+        $regras = [
+            'nome' => 'required',
+            'descrição' => 'required',
+            'peso' => 'required|integer',
+            'unidade_id' => 'exists:unidades,id',
+        ];
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'integer' => 'o campo peso deve ser um numero inteiro',
+            'unidade_id.exists' => 'A unidade de medida informada não existe!'
+        ];
+
+        $request->validate($regras, $feedback);
         Produto::create($request->all());
         return redirect()->route('produtos.index');
     }

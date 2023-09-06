@@ -24,26 +24,27 @@
                   
                     <div style="width: 30%; margin-left: auto; margin-right: auto;">
                         <form method="post" action="{{ route('produtos.store') }}">
-                            <input type="hidden" name="id" value="{{ isset($fornecedor) ? $fornecedor->id : '' }}">
                             @csrf
-                            
-                            <input type="text" name="nome" value=""  placeholder="Nome"   class="borda-preta">
-                           
-                            <input type="text" name="descrição" value=""  placeholder="Descrição"   class="borda-preta">
-                    
+                            <input type="text" name="nome" value="{{ old('nome')}}" placeholder="Nome"   class="borda-preta">
+                            {{ $errors->has('nome') ? $errors->first('nome') : ''}}
 
-                            <input type="text" name="peso" value=""    placeholder="Peso"     class="borda-preta">
+                            <input type="text" name="descrição" value="{{ old('descrição')}}"  placeholder="Descrição"   class="borda-preta">
+                            {{ $errors->has('descrição') ? $errors->first('descrição') : ''}}
+
+                            <input type="text" name="peso" value="{{ old('peso')}}"  placeholder="Peso"   class="borda-preta">
+                            {{ $errors->has('peso') ? $errors->first('peso') : ''}}
+
                           
 
                             <select name="unidade_id">
                                 <option>-- Selecione a Unidade de Medida --</option>
 
                                 @foreach ($unidades as $unidade)
-                                <option value="{{ $unidade->id }}">{{ $unidade->descricao }}</option>
+                                <option value="{{ $unidade->id }}" {{ old('unidade_id') == $unidade->id ? 'selected' : ''}} >{{ $unidade->descricao }}</option>
                                 @endforeach
                             
                             </select>
-                  
+                            {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : ''}}
 
                             <button type="submit" class="borda-preta">Cadastrar</button>
                         </form>
