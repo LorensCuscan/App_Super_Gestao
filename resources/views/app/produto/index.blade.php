@@ -23,7 +23,7 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Descrição</th>
+                            <th>descrição</th>
                             <th>Peso</th>
                             <th>E-Unidade ID</th>
                             <th></th>
