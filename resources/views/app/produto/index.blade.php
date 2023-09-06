@@ -25,8 +25,7 @@
                             <th>Nome</th>
                             <th>descrição</th>
                             <th>Peso</th>
-                            <th>E-Unidade ID</th>
-                            <th></th>
+                            <th>E-Unidade ID</th>            
                             <th></th>
                             <th></th>
                             <th></th>
@@ -41,7 +40,7 @@
                                 <td>{{ $produto->unidade_id }}</td>
                                 <td><a href="{{ route('produtos.show', ['produto' => $produto->id]) }}">Visualizar</a></td>
                                 <td><a href="">Excluir</a></td>
-                                <td><a href="">Editar</a></td>
+                                <td><a href="{{ route('produtos.edit', ['produto' => $produto->id]) }}">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>                  
