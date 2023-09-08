@@ -9,7 +9,7 @@
     <div class="conteudo-pagina">
 
         <div class="titulo-pagina" >
-            @if (isset($produto->$id))
+            @if (isset($produto->id))
                 <p>Editar produto</p>
             @else
             <p>Adicionar produto</p>
@@ -23,14 +23,14 @@
         </div>
                 <div class="informacao-pagina">                
                     <div style="width: 30%; margin-left: auto; margin-right: auto;">
-                        @if (isset($produto->$id))
-                        <form method="post" action="{{ route('produtos.update') }}">
-                        @csrf
-                        @method('PUT')
-                        @else
+                        @if(isset($produto->id))
+                        <form method="post" action="{{ route('produto.update', ['produto' => $produto->id]) }}">
+                            @csrf
+                            @method('PUT')
+                    @else
                         <form method="post" action="{{ route('produtos.store') }}">
-                        @csrf
-                        @endif
+                            @csrf
+                    @endif
                       
                             <input type="text" name="nome" value="{{$produto->nome ?? old('nome')}}" placeholder="Nome"   class="borda-preta">
                             {{ $errors->has('nome') ? $errors->first('nome') : ''}}
