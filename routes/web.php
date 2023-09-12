@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\ProdutoDetalheController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Middleware\LogAcessoMiddleware;
@@ -66,6 +67,9 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
 
 
     Route::resource('/produtos', ProdutoController::class);
+
+    //proutos detalhes
+    Route::resource('/produto-detalhe', ProdutoDetalheController::class);
 
 
 });
