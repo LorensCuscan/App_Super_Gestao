@@ -7,6 +7,18 @@
     @csrf
 @endif
 
+<button class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-l hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    
+    
+    <svg viewBox="0 4 10 10" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" >
+      <path stroke="currentColor" stroke-linecap="butt" stroke-linejoin="round" stroke-width="1" d="M13 5H1m0 0 4 4M1 5l4-4"/>
+    </svg>
+    Anterior
+</button>
+
+
+
+
     <input type="text" name="nome" value="{{$produto->nome ?? old('nome')}}" placeholder="Nome"   class="borda-preta">
     {{ $errors->has('nome') ? $errors->first('nome') : ''}}
 
