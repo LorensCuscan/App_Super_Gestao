@@ -19,6 +19,7 @@
 
         <div class="informacao-pagina">
             <div style="width: 90%; margin-left: auto; margin-right: auto;">
+              
                 <table border="2" width="100%">
                     <thead>
                         <tr>
@@ -42,8 +43,6 @@
                                 <td>{{ $produto->itemDetalhe->comprimento ?? '' }}</td>
                                 <td>{{ $produto->itemDetalhe->altura ?? '' }}</td>
                                 <td>{{ $produto->itemDetalhe->largura ?? '' }}</td>
-                                
-                          
                                 <td><a href="{{ route('produtos.show', ['produto' => $produto->id]) }}">Visualizar</a></td>
                                 <td>
                                     <form id="form_{{ $produto->id }}" method="post" action="{{ route('produtos.destroy', ['produto' => $produto->id]) }}">

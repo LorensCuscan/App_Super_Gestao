@@ -11,7 +11,7 @@ class Produto extends Model
 
     protected $fillable = ['nome', 'descrição', 'peso', 'unidade_id'];
 
-public function produtoDetakhe(){
-    return $this->hasOne('App\ProdutoDetalhe');
+public function produtoDetalhe(){
+    return $this->hasOne('App\Models\ProdutoDetalhe');
 }
 }
