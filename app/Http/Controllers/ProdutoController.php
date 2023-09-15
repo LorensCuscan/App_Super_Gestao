@@ -19,7 +19,7 @@ class ProdutoController extends Controller
      */
     public function index(Request $request)
     {
-        $produtos = Item::paginate(10);
+        $produtos = Item::with(['itemDetalhe'])->paginate(10);
     
         // Criar a visualização
         $view = view('app.produto.index', ['produtos' => $produtos, 'request' => $request->all()]);

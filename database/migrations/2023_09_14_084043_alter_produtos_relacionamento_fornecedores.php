@@ -20,7 +20,7 @@ return new class extends Migration
                 'uf' => 'SP',
                 'email' => 'contatofornecedorpadraoSG@gmail.com',
             ]);
-            $table->unsignedBigInteger('fornecedor_id')->nullable()->after('id');
+        $table->unsignedBigInteger('fornecedor_id')->default($fornecedor_id)->after('id');
         $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
         });
     }
