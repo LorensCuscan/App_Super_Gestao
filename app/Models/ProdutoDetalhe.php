@@ -9,12 +9,12 @@ class ProdutoDetalhe extends Model
 {
     use HasFactory;
 
+    protected $table = 'produtos_detalhes';
+
     protected $fillable = ['produto_id', 'comprimento', 'largura', 'altura', 'unidade_id'];
 
     public function produtoDetalhe(){
-        return $this->hasOne('App\ProdutoDetalhe');
-
-       
+        return $this->hasOne('App\Models\ProdutoDetalhe');
     }
 
     public function produto(){
