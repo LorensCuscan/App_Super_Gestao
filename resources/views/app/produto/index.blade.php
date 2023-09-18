@@ -18,14 +18,16 @@
         </div>
 
         <div class="informacao-pagina">
-            <div style="width: 90%; margin-left: auto; margin-right: auto;">
+            <div style="width: 95%; margin-left: auto; margin-right: auto;">
               
-                <table border="2" width="100%">
+                <table border="1" width="70%  margin-left: auto; margin-right: auto;">
                     <thead>
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
                             <th>Fornecedor</th>
+                            <th>Nome do Fornecedor</th>
+                            <th>Site do Fornecedor</th>
                             <th>Peso</th>
                             <th>E-Unidade ID</th>            
                             <th>Comprimento</th>
@@ -40,6 +42,8 @@
                                 <td>{{ $produto->nome }}</td>
                                 <td>{{ $produto->descrição }}</td>
                                 <td>{{ $produto->fornecedor->nome}}</td>
+                                <td>{{ $produto->fornecedor->email}}</td>
+                                <td>{{ $produto->fornecedor->site}}</td>
                                 <td>{{ $produto->peso }}</td>
                                 <td>{{ $produto->unidade_id }}</td>
                                 <td>{{ $produto->itemDetalhe->comprimento ?? '' }}</td>
