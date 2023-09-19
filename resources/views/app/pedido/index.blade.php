@@ -27,6 +27,7 @@
                             <th>Cliente</th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,7 +44,7 @@
                                         <!--<button type="submit">Excluir</button>-->
                                     </form>
                                 </td>
-                                <td><a href="{{ route('cliente.edit', ['pedido' => $pedido->id]) }}">Editar</a></td>
+                                <td><a href="{{ route('pedido.edit', ['pedido' => $pedido->id]) }}">Editar</a></td>
                             </tr>
                         @endforeach
                     </tbody>
