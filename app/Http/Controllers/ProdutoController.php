@@ -53,7 +53,7 @@ class ProdutoController extends Controller
             'descrição' => 'required',
             'peso' => 'required|integer',
             'unidade_id' => 'exists:unidades,id',
-            'fornecedor_id' => 'exists:fornecedores.id',
+            'fornecedor_id' => 'exists:fornecedores,id',
         ];
         $feedback = [
             'required' => 'O campo :attribute deve ser preenchido',

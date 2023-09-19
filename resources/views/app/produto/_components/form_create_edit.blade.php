@@ -18,15 +18,14 @@
 
   
 
-    <select name="fornecedor_id">
-        <option>-- Selecione um Fornecedor --</option>
+    <select name="unidade_id">
+        <option>-- Selecione a Unidade de Medida --</option>
 
-        @foreach ($fornecedores as $fornecedor)
-        <option value="{{ $fornecedor->id }}" {{( $produto->fornecedor_id ?? old('fornecedor_id')) == $fornecedor->nome ? 'selected' : ''}} >{{ $fornecedor->nome }}</option>
+        @foreach($unidades as $unidade)
+            <option value="{{ $unidade->id }}" {{ ($produto->unidade_id ?? old('unidade_id')) == $unidade->id ? 'selected' : '' }} >{{ $unidade->descricao }}</option>
         @endforeach
-    
     </select>
-    {{ $errors->has('fornecedor_id') ? $errors->first('fornecedor_id') : ''}}
-
+    {{ $errors->has('unidade_id') ? $errors->first('unidade_id') : '' }}
+    
     <button type="submit" class="borda-preta">Cadastrar</button>
-</form>
+<form>
