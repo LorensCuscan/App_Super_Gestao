@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fornecedor;
 use App\Models\Item;
 use App\models\Produto;
 use App\Models\ProdutoDetalhe;
@@ -35,7 +36,8 @@ class ProdutoController extends Controller
     public function create()
     {
         $unidades = Unidade::all();
-        return view('app.produto.create', ['unidades' => $unidades]);
+        $fornecedores = Fornecedor::all();
+        return view('app.produto.create', ['unidades' => $unidades, 'fornecedores' => $fornecedores]);
     }
 
     /**
@@ -51,11 +53,13 @@ class ProdutoController extends Controller
             'descrição' => 'required',
             'peso' => 'required|integer',
             'unidade_id' => 'exists:unidades,id',
+            'fornecedor_id' => 'exists:fornecedores.id',
         ];
         $feedback = [
             'required' => 'O campo :attribute deve ser preenchido',
             'integer' => 'o campo peso deve ser um numero inteiro',
-            'unidade_id.exists' => 'A unidade de medida informada não existe!'
+            'unidade_id.exists' => 'A unidade de medida informada não existe!',
+            'fornecedor_id.exists' => 'O fornecedor informado não existe!'
         ];
 
         $request->validate($regras, $feedback);
@@ -84,7 +88,8 @@ class ProdutoController extends Controller
     public function edit(Produto $produto)
     {
         $unidades = Unidade::all();
-       return view('app.produto.edit', ['produto' => $produto, 'unidades' => $unidades]);
+        $fornecedores = Fornecedor::all();
+       return view('app.produto.edit', ['produto' => $produto, 'unidades' => $unidades, 'fornecedores' => $fornecedores]);
        // return view('app.produto.create', ['produto' => $produto, 'unidades' => $unidades]);
     }
 
@@ -92,15 +97,27 @@ class ProdutoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produto  $produto
+     * @param  \App\Item  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Produto $produto)
+    public function update(Request $request, Item $produto)
     {
-        print_r($request->all());
-        echo '<br><br>';
-        print_r($produto->getAttributes());
+        $regras = [
+            'nome' => 'required',
+            'descrição' => 'required',
+            'peso' => 'required|integer',
+            'unidade_id' => 'exists:unidades.id',
+            'fornecedor_id' => 'exists:fornecedores.id',
+        ];
+        $feedback = [
+            'required' => 'O campo :attribute deve ser preenchido',
+            'integer' => 'o campo peso deve ser um numero inteiro',
+            'unidade_id.exists' => 'A unidade de medida informada não existe!',
+            'fornecedor_id.exists' => 'O fornecedor informado não existe!'
+        ];
 
+        $request->validate($regras, $feedback);
+    
         $produto->update($request->all());
         return redirect()->route('produtos.show', ['produto' => $produto->id]);
     }
