@@ -76,6 +76,8 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::resource('cliente', ClienteController::class);
     Route::resource('pedido', PedidoController::class);
     Route::resource('pedido-produto', PedidoProdutoController::class);
+    Route::get('pedido-produto/create/{pedido}', [PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
+    Route::get('pedido-produto/store/{pedido}', [PedidoProdutoController::class, 'store'])->name('pedido-produto.store');
 
 
 });
