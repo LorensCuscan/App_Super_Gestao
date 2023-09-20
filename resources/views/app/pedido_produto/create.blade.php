@@ -24,6 +24,8 @@
                     <p>ID do pedido: {{ $pedido->id }}</p>
                     <p>Cliente: {{ $pedido->cliente_id }}</p>                
                     <div style="width: 100%; margin-left: auto; margin-right: auto;">
+                        <h4>Itens do pedido</h4>
+                        {{ $pedido }}
                         <div style="width: 30%; margin-left: auto; margin-right: auto;">
                             @component('app.pedido_produto._components.form_create', ['pedido' => $pedido, 'produtos' => $produtos])
                                    
