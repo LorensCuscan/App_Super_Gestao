@@ -24,7 +24,7 @@ class PedidoProdutoController extends Controller
     {
         
         $produtos = Produto::all();
-        $pedido->produtos; //eager loading
+       // $pedido->produtos; //eager loading
         return view('app.pedido_produto.create', ['pedido' => $pedido, 'produtos' => $produtos]);
     }
 
