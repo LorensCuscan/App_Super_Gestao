@@ -5,7 +5,7 @@
 
 
 
-<form action="{{ route('site.contato') }}" method="post">
+<form action="{{ route('site.contato.salvar') }}" method="post">
     @csrf
     <input name="nome" value="{{ old('nome') }}" type="text" placeholder="Nome" class="{{ $classe }}">
     @if ($errors->has('nome'))
