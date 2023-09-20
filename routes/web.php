@@ -57,9 +57,9 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::get('/fornecedores', [FornecedorController::class, 'index'])->name('app.index');   
    
   
+    Route::get('/fornecedores/adicionar', [FornecedorController::class, 'salvar'])->name('app.fornecedor.salvar');   
     Route::post('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');   
-   
-    Route::get('/fornecedores/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');   
+    Route::get('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');     
     Route::post('/fornecedores/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.salvar');
     
     Route::get('fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
@@ -74,7 +74,7 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::resource('cliente', ClienteController::class);
     Route::resource('pedido', PedidoController::class);
     Route::resource('pedido-produto', PedidoProdutoController::class);
-    Route::post('pedido-produto/create/{pedido}', [PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
+    Route::get('pedido-produto/create/{pedido}', [PedidoProdutoController::class, 'create'])->name('pedido-produto.create');
     Route::post('pedido-produto/store/{pedido}', [PedidoProdutoController::class, 'store'])->name('pedido-produto.store');
 
 
