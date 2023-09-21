@@ -16,7 +16,7 @@
 
         <div class="menu">
             <ul>
-                <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
+                <li><a href="{{ route('app.fornecedor.salvar') }}">Novo</a></li>
                 <li><a href="{{ route('app.index') }}">Consulta</a></li>
             </ul>
         </div>

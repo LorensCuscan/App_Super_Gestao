@@ -60,7 +60,7 @@ Route::middleware('log.autenticacao:padrao,visitante')->prefix('/app')->group(fu
     Route::get('/fornecedores/adicionar', [FornecedorController::class, 'salvar'])->name('app.fornecedor.salvar');   
     Route::post('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');   
     Route::get('/fornecedores/listar', [FornecedorController::class, 'listar'])->name('app.fornecedor.listar');     
-    Route::post('/fornecedores/adicionar', [FornecedorController::class, 'adicionar'])->name('app.fornecedor.salvar');
+    Route::post('/fornecedores/adicionar', [FornecedorController::class, 'salvar'])->name('app.fornecedor.salvar');
     
     Route::get('fornecedor/editar/{id}/{msg?}', [FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
     Route::get('fornecedor/excluir/{id}', [FornecedorController::class, 'excluir'])->name('app.fornecedor.excluir');

@@ -22,7 +22,7 @@ class FornecedorController extends Controller
         return view('app.fornecedor.listar', ['fornecedores' => $fornecedores, 'request' => $request->all()]);
     }
 
-    public function adicionar(Request $request) {
+    public function salvar(Request $request) {
 
         $msg = '';
 
@@ -77,7 +77,7 @@ class FornecedorController extends Controller
 
         $fornecedor = Fornecedor::find($id);
 
-        return view('app.fornecedor.adicionar', ['fornecedor' => $fornecedor, 'msg' => $msg]);
+        return view('app.fornecedor.salvar', ['fornecedor' => $fornecedor, 'msg' => $msg]);
     }
 
     public function excluir($id){
