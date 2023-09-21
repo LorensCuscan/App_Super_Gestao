@@ -51,11 +51,19 @@ class PedidoProdutoController extends Controller
         $pedidoProduto->produto_id = $request->get('produto_id');
         $pedidoProduto->quantidade = $request->get('quantidade');
         $pedidoProduto->save();
-
+        /*
         $pedido->produtos()->attach(
             $request->get('produto_id'),
-            ['quantidade' => $request->get('quantidade')]
-        );
+            [
+                'quantidade' => $request->get('quantidade'),
+                'coluna_1' => $request->get('quantidade'),
+                'coluna_2' => 'quantidade',
+            ]
+        );*/
+
+        $pedido->produtos()->attach([
+            $request->get('produto_id') => ['quantidade' => $request->get('quantidade')]
+        ]);
 
         return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
     }
