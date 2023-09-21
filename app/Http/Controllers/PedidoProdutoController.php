@@ -46,11 +46,11 @@ class PedidoProdutoController extends Controller
 
         $request->validate($regras, $feedback);
      
-        $pedidoProduto = new PedidoProduto();
-        $pedidoProduto->pedido_id = $pedido->id;
-        $pedidoProduto->produto_id = $request->get('produto_id');
-        $pedidoProduto->quantidade = $request->get('quantidade');
-        $pedidoProduto->save();
+        // $pedidoProduto = new PedidoProduto();
+        // $pedidoProduto->pedido_id = $pedido->id;
+        // $pedidoProduto->produto_id = $request->get('produto_id');
+        // $pedidoProduto->quantidade = $request->get('quantidade');
+        // $pedidoProduto->save();
         /*
         $pedido->produtos()->attach(
             $request->get('produto_id'),
@@ -94,8 +94,10 @@ class PedidoProdutoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pedido $pedido, Produto $produto)
     {
-        //
+        $pedido->produtos()->detach($produto->id);
+
+        return redirect()->route('pedido-produto.create', ['pedido' => $pedido->id]);
     }
 }
